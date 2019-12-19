@@ -1,0 +1,115 @@
+swagger: '2.0'
+info:
+  title: Zn 的大杂烩 API V1.0
+  description: Zn 的大杂烩 API V1.0
+  version: 2.2.0
+  contact:
+    name: Zn
+    email: 312073339@qq.com
+host: 127.0.0.1:8080
+tags:
+  - name: 管理后台 - user
+    description: 管理员
+basePath: /api/v1.0
+schemes:
+  - http
+paths:
+  '/client/login':
+    x-swagger-router-controller: userController
+    x-auth-schema:
+      - PUBLIC
+    post:
+      tags:
+        - 管理后台 - user
+      summary: 登录
+      operationId: loginUser
+      parameters:
+        - in: body
+          name: user
+          required: true
+          schema:
+            $ref: '#/definitions/LoginUserRequest'
+      responses:
+        '200':
+          description: 管理员
+          schema:
+            type: object
+            properties:
+              user:
+                $ref: '#/definitions/User'
+  '/client/password':
+    x-swagger-router-controller: userController
+    x-auth-schema:
+      - CLIENT
+    post:
+      tags:
+        - 管理后台 - user
+      summary: 管理员更改密码
+      operationId: updateUserPassword
+      parameters:
+        - in: body
+          name: user
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateUserPasswordRequest'
+      responses:
+        '200':
+          description: 管理员
+          schema:
+            type: object
+            properties:
+              user:
+                $ref: '#/definitions/User'
+definitions:
+  User:
+    type: object
+    required:
+      - id
+      - name
+      - username
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      username:
+        type: string
+      token:
+        type: string
+      createdAt:
+        type: number
+      updatedAt:
+        type: number
+  CreateUserRequest:
+    type: object
+    required:
+      - name
+      - username
+      - password
+    properties:
+      name:
+        type: string
+      username:
+        type: string
+      password:
+        type: string
+  UpdateUserPasswordRequest:
+    type: object
+    required:
+      - oldPassword
+      - password
+    properties:
+      oldPassword:
+        type: string
+      password:
+        type: string
+  LoginUserRequest:
+    type: object
+    required:
+      - username
+      - password
+    properties:
+      username:
+        type: string
+      password:
+        type: string

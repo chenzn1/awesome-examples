@@ -1,0 +1,46 @@
+{
+  "extends": [
+    "standard",
+    "prettier"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jade": true
+    }
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-unused-vars": [
+      "error", {
+        "args": "none",
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "prefer-const": [
+      "error", {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+      }
+    ],
+    "no-inner-declarations": 2,
+    "no-cond-assign": 2,
+    "no-dupe-args": 2,
+    "no-dupe-keys": 2,
+    "no-func-assign": 2,
+    "no-sparse-arrays": 2,
+    "valid-typeof": 2,
+    "use-isnan": 2,
+    "no-useless-call": "error"
+  }
+}
