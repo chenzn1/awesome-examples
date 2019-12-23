@@ -1,12 +1,9 @@
 const express = require('express')
 const logger = require('morgan')
-const path = require('path')
 const bodyParser = require('body-parser')
 const errorHandler = require('./middlewares/error')
 const authRouter = require('./middlewares/auth')
 const errors = require('./errors')
-const payController = require('./controllers/payController')
-const xmlparser = require('express-xml-bodyparser')
 
 logger.token('ip', function(req, res) {
   return req.headers['x-forwarded-for'] || req.ip || req.connection.remoteAddress

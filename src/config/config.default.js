@@ -1,10 +1,11 @@
-const path = require('path')
+const logger = require('../helpers/logger')
+const env = require('../../env.json')
 
 module.exports = {
   database: {
-    database: 'hodgepodge',
-    username: 'root',
-    password: '',
+    database: env.database.database,
+    username: env.database.username,
+    password: env.database.password,
     logging: false,
     define: {
       charset: 'utf8mb4',
@@ -15,8 +16,13 @@ module.exports = {
       paranoid: true,
     },
     dialect: 'mysql',
-    port: 3306,
-    host: '',
+    port: env.database.port,
+    host: env.database.host,
     operatorsAliases: false,
-  }
+  },
+  umzug: {
+    logging: str => {
+      logger.info(str)
+    },
+  },
 }
