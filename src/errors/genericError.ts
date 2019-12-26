@@ -1,4 +1,4 @@
-const BaseError = require('./baseError')
+import BaseError from './baseError'
 
 // class 100: Generic error
 class GenericError extends BaseError {
@@ -49,7 +49,7 @@ class SwaggerValidationError extends GenericError {
   }
 }
 
-module.exports = {
+export {
   UnknownServerError,
   ValidationError,
   MethodNotAllowedError,

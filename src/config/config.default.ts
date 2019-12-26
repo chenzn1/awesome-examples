@@ -1,7 +1,7 @@
 const logger = require('../helpers/logger')
 const env = require('../../env.json')
 
-module.exports = {
+export default {
   database: {
     database: env.database.database,
     username: env.database.username,

@@ -1,16 +1,13 @@
 'use strict'
-
-const Umzug = require('umzug')
-const sequelize = require('./sequelize')
-const config = require('../config').umzug
-const path = require('path')
+import Umzug from 'umzug'
+import path from 'path'
+import sequelize from './sequelize'
+import config from '../config'
+import _ from 'lodash'
 
 const umzug = new Umzug({
   storage: 'sequelize',
-  storageOptions: {
-    sequelize: sequelize,
-  },
-
+  storageOptions: { sequelize },
   // see: https://github.com/sequelize/umzug/issues/17
   migrations: {
     params: [
@@ -23,16 +20,17 @@ const umzug = new Umzug({
       },
     ],
     path: path.join(__dirname, '../migrations'),
-    pattern: /\.js$/,
+    pattern: /\.ts$/,
   },
 
-  logging: config.logging,
+  logging: config.umzug.logging,
 })
 
-module.exports.umzugUp = () => {
-  return umzug.up()
-}
-
-module.exports.umzugDown = () => {
-  return umzug.down({ to: 0 })
+export default {
+  umzugUp() {
+    return umzug.up()
+  },
+  umzugDown() {
+    return umzug.down({ to: 0 })
+  },
 }

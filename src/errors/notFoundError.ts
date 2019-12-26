@@ -1,4 +1,4 @@
-const BaseError = require('./baseError')
+import BaseError from './baseError'
 
 // class 300: NotFound Error
 class NotFoundError extends BaseError {
@@ -13,6 +13,4 @@ class UserNotFoundError extends NotFoundError {
   }
 }
 
-module.exports = {
-  UserNotFoundError,
-}
+export { UserNotFoundError }

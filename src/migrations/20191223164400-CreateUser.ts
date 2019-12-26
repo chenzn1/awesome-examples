@@ -2,7 +2,7 @@
 
 const TABLE_NAME = 'users'
 
-module.exports = {
+export default {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable(
       TABLE_NAME,
@@ -13,7 +13,7 @@ module.exports = {
           autoIncrement: true,
           allowNull: false,
         },
-        name: {
+        nickname: {
           type: Sequelize.STRING,
           allowNull: false,
         },

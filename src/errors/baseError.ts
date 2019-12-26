@@ -9,8 +9,19 @@ pe.withoutColors()
  * Base error class of the payment system, all error should extends from this or you should
  * catch and re-throw to our custom error
  */
-class BaseError extends Error {
-  constructor(statusCode, categoryCode, errorCode, message, err = '', data = null) {
+export default class BaseError extends Error {
+  private statusCode: number
+  private code: number
+  private data: any
+  private details: string
+  constructor(
+    statusCode: number,
+    categoryCode: number,
+    errorCode: number,
+    message: string,
+    err: any,
+    data: any = null
+  ) {
     super(message)
     this.name = this.constructor.name
     this.statusCode = statusCode
@@ -24,7 +35,7 @@ class BaseError extends Error {
   }
 
   toJson() {
-    const errorObj = {
+    const errorObj: any = {
       error: {
         code: this.code,
         name: this.name,
@@ -42,5 +53,3 @@ class BaseError extends Error {
     return `statusCode=${this.statusCode}, errorCode=${this.code}, message=${this.message}, details=${this.details}`
   }
 }
-
-module.exports = BaseError

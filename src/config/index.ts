@@ -1,6 +1,6 @@
-const defaultConfig = require('./config.default')
-const devConfig = require('./config.dev')
-const prodConfig = require('./config.prod')
+import defaultConfig from './config.default'
+import devConfig from './config.dev'
+import prodConfig from './config.prod'
 
 let config = {}
 switch (process.env.HODGEPODGE_ENV) {
@@ -11,7 +11,7 @@ switch (process.env.HODGEPODGE_ENV) {
     config = prodConfig
     break
 }
-module.exports = {
+export default {
   ...defaultConfig,
   ...config,
 }

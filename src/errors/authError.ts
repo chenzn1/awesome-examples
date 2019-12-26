@@ -1,5 +1,4 @@
-const BaseError = require('./baseError')
-
+import BaseError from './baseError'
 class AuthError extends BaseError {
   constructor(statusCode, errorCode, message, err = '', data = null) {
     super(statusCode, 101, errorCode, message, err, data)
@@ -36,7 +35,7 @@ class UnRegisterError extends AuthError {
   }
 }
 
-module.exports = {
+export {
   InvalidAuthHeaderError,
   VerificationError,
   AccessError,

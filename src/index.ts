@@ -7,8 +7,30 @@
 const http = require('http')
 const logger = require('./helpers/logger')
 const { createTerminus } = require('@godaddy/terminus')
+const umzug = require('./drivers/umzug')
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val: string): any {
+  const port = parseInt(val, 10)
+
+  if (isNaN(port)) {
+    // named pipe
+    return val
+  }
+
+  if (port >= 0) {
+    // port number
+    return port
+  }
+
+  return 8080
+}
 
 async function main() {
+  await umzug.umzugUp()
   const app = await require('./app').createApiServer()
 
   /**
@@ -75,26 +97,6 @@ async function main() {
       logger.info('teardown process finished, ready to close server...')
     },
   })
-}
-
-/**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val) {
-  const port = parseInt(val, 10)
-
-  if (isNaN(port)) {
-    // named pipe
-    return val
-  }
-
-  if (port >= 0) {
-    // port number
-    return port
-  }
-
-  return false
 }
 
 /**
