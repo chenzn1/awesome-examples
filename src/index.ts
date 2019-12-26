@@ -4,11 +4,31 @@
 /**
  * Module dependencies.
  */
-const http = require('http')
-const logger = require('./helpers/logger')
-const { createTerminus } = require('@godaddy/terminus')
-const umzug = require('./drivers/umzug')
+import moduleAlias from 'module-alias'
+import fs from 'fs'
+import path from 'path'
 
+function addModulesAlias() {
+  const srcOrDist = 'src'
+
+  const aliasDirs = fs.readdirSync(__dirname)
+  const aliasMap = {
+    '@': path.join(__dirname, '..', srcOrDist),
+  }
+  for (const aliasDir of aliasDirs) {
+    if (!/.+\.ts/.test(aliasDir)) {
+      aliasMap[aliasDir] = path.join(__dirname, '..', srcOrDist, aliasDir)
+    }
+  }
+  moduleAlias.addAliases(aliasMap)
+}
+addModulesAlias()
+
+import http from 'http'
+import logger from './helpers/logger'
+import { createTerminus } from '@godaddy/terminus'
+import app from './app'
+import umzug from './drivers/umzug'
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -31,20 +51,20 @@ function normalizePort(val: string): any {
 
 async function main() {
   await umzug.umzugUp()
-  const app = await require('./app').createApiServer()
+  const apiServer = await app.createApiServer()
 
   /**
    * Get port from environment and store in Express.
    */
 
   const port = normalizePort(process.env.PORT || '8080')
-  app.set('port', port)
+  apiServer.set('port', port)
 
   /**
    * Create HTTP server.
    */
 
-  const server = http.createServer(app)
+  const server = http.createServer(apiServer)
 
   /**
    * Listen on provided port, on all network interfaces.
@@ -59,15 +79,11 @@ async function main() {
     }
   })
 
-  server.on('error', error => {
-    if (error.syscall !== 'listen') {
-      throw error
-    }
-
+  server.on('error', (error: Error) => {
     const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`
 
     // handle specific listen errors with friendly messages
-    switch (error.code) {
+    switch (error.name) {
       case 'EACCES':
         logger.error(`${bind} requires elevated privileges`)
         process.exit(1)
@@ -88,13 +104,14 @@ async function main() {
     logger: err => {
       logger.error(err)
     },
-    onSignal: () => {
+    onSignal: async () => {
       logger.info('going to close the server...')
-      const sequelize = require('./drivers/sequelize')
-      return Promise.all([sequelize.close()])
+      // const sequelize = require('./drivers/sequelize')
+      // return Promise.all([sequelize.close()])
     },
-    onShutdown: () => {
+    onShutdown: async () => {
       logger.info('teardown process finished, ready to close server...')
+      return
     },
   })
 }

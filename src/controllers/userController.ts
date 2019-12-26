@@ -7,6 +7,6 @@ const clientHandlers = {
   },
 }
 
-module.exports = {
+export default {
   ...clientHandlers,
 }

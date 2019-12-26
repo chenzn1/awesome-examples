@@ -1,11 +1,9 @@
-const logger = require('../helpers/logger')
-const errors = require('../errors')
-
-const _ = require('lodash')
-const fastRedact = require('fast-redact')
-const Sequelize = require('sequelize')
-
-const swaggerHelper = require('../helpers/swaggerHelper')
+import logger from 'helpers/logger'
+import * as errors from 'errors'
+import _ from 'lodash'
+import fastRedact from 'fast-redact'
+import { ValidationError } from 'sequelize'
+import swaggerHelper from 'helpers/swaggerHelper'
 
 const redact = fastRedact({
   paths: ['*.userPIN'],
@@ -16,6 +14,7 @@ function getReqParams(req) {
   return redact(
     _(req)
       .chain()
+      // @ts-ignore
       .get('swagger.params', {})
       .cloneDeep()
       .mapValues(val => val.value)
@@ -23,11 +22,11 @@ function getReqParams(req) {
   )
 }
 
-module.exports = {
+export default {
   getReqParams, // export for easier test case
   generalErrorHandler(err, req, res, next) {
     // Wrap sequelize validation errors
-    if (err instanceof Sequelize.ValidationError) {
+    if (err instanceof ValidationError) {
       err = new errors.ValidationError(err.message)
     }
 

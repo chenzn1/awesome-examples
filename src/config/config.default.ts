@@ -1,5 +1,5 @@
-const logger = require('../helpers/logger')
-const env = require('../../env.json')
+import logger from 'helpers/logger'
+import env from '../../env.json'
 
 export default {
   database: {

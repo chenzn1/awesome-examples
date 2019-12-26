@@ -9,7 +9,7 @@ pe.withoutColors()
  * Base error class of the payment system, all error should extends from this or you should
  * catch and re-throw to our custom error
  */
-export default class BaseError extends Error {
+export class BaseError extends Error {
   private statusCode: number
   private code: number
   private data: any

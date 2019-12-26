@@ -15,68 +15,27 @@
     "declaration": false,
     "esModuleInterop": true,
     "allowJs": false,
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "lib": ["es2018", "dom"],
     "outDir": "dist/src",
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "tests/*": [
-        "./tests/*"
-      ],
-      "services/*": [
-        "./services/*"
-      ],
-      "drivers/*": [
-        "./drivers/*"
-      ],
-      "utils/*": [
-        "./utils/*"
-      ],
-      "enums/*": [
-        "./enums/*"
-      ],
-      "errors/*": [
-        "./errors/*"
-      ],
-      "helpers/*": [
-        "./helpers/*"
-      ],
-      "interfaces/*": [
-        "./interfaces/*"
-      ],
-      "middlewares/*": [
-        "./middlewares/*"
-      ],
-      "models/*": [
-        "./models/*"
-      ],
-      "repositories/*": [
-        "./repositories/*"
-      ],
-      "transformers/*": [
-        "./transformers/*"
-      ],
-      "validators/*": [
-        "./validators/*"
-      ],
-      "constants/*": [
-        "./constants/*"
-      ],
-      "controllers/*": [
-        "./controllers/*"
-      ],
-      "tasks/*": [
-        "./tasks/*"
-      ]
+      "@/*": ["./*"],
+      "tests/*": ["./tests/*"],
+      "services/*": ["./services/*"],
+      "drivers/*": ["./drivers/*"],
+      "utils/*": ["./utils/*"],
+      "enums/*": ["./enums/*"],
+      "errors/*": ["./errors/*"],
+      "helpers/*": ["./helpers/*"],
+      "interfaces/*": ["./interfaces/*"],
+      "middlewares/*": ["./middlewares/*"],
+      "models/*": ["./models/*"],
+      "repositories/*": ["./repositories/*"],
+      "transformers/*": ["./transformers/*"],
+      "validators/*": ["./validators/*"],
+      "constants/*": ["./constants/*"],
+      "controllers/*": ["./controllers/*"]
     }
   },
-  "exclude": [
-    "dist",
-    "node_modules"
-  ]
+  "exclude": ["dist", "node_modules"]
 }

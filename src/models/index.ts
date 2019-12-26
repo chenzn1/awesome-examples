@@ -1,3 +1,5 @@
 import sequelize from '../drivers/sequelize'
+import User from './User'
 
-export { sequelize }
+User.init2(sequelize)
+export { sequelize, User }

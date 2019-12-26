@@ -1,24 +1,24 @@
-const express = require('express')
-const logger = require('morgan')
-const bodyParser = require('body-parser')
-const errorHandler = require('./middlewares/error')
-const authRouter = require('./middlewares/auth')
-const errors = require('./errors')
-
-logger.token('ip', function(req, res) {
-  return req.headers['x-forwarded-for'] || req.ip || req.connection.remoteAddress
+import express from 'express'
+import logger from 'morgan'
+import bodyParser from 'body-parser'
+import * as errors from 'errors'
+import errorHandler from 'middlewares/error'
+import authRouter from 'middlewares/auth'
+import controllerFunc from 'controllers'
+logger.token('ip', (req, res): string => {
+  //req.headers['x-forwarded-for'] ||
+  return req.ip || req.connection.remoteAddress
 })
 
 async function loadMainControllers(app) {
   const commonSwaggerMiddlewares = [authRouter]
-  const middleware = await require('./controllers')(commonSwaggerMiddlewares)
+  const middleware = await controllerFunc(commonSwaggerMiddlewares)
   app.use(middleware)
 }
 
-module.exports = {
+export default {
   async createApiServer() {
     const app = express()
-    // uncomment after placing your favicon in /public
     // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
     // app.use(logger('dev'))
     app.use(bodyParser.json({}))

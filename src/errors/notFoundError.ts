@@ -1,4 +1,4 @@
-import BaseError from './baseError'
+import { BaseError } from './baseError'
 
 // class 300: NotFound Error
 class NotFoundError extends BaseError {

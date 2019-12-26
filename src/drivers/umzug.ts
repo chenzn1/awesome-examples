@@ -7,12 +7,12 @@ import _ from 'lodash'
 
 const umzug = new Umzug({
   storage: 'sequelize',
+  // @ts-ignore：版本差异
   storageOptions: { sequelize },
   // see: https://github.com/sequelize/umzug/issues/17
   migrations: {
     params: [
       sequelize.getQueryInterface(), // queryInterface
-      sequelize.constructor, // DataTypes
       () => {
         throw new Error(
           'Migration tried to use old style "done" callback. Please upgrade to "umzug" and return a promise instead.'

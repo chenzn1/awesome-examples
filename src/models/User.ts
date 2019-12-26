@@ -1,38 +1,45 @@
 'use strict'
-import { DataTypes, Model } from 'sequelize'
-import sequelize from '../drivers/sequelize'
-class User extends Model {}
-User.init(
-  {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    token: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    passwordSalt: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      field: 'password_salt',
-    },
-    createdAt: {
-      type: DataTypes.DATE,
-      field: 'created_at',
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      field: 'updated_at',
-    },
+import { DataTypes, Model, Sequelize } from 'sequelize'
+
+const scheme = {
+  id: {
+    primaryKey: true,
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
   },
-  { sequelize, paranoid: false }
-)
+  nickname: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  username: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  token: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  passwordSalt: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+}
+
+export default class User extends Model {
+  public id!: number
+  public nickname!: string
+  public username!: string
+  public token!: string | null
+  public password!: string
+  public passwordSalt!: string
+  public readonly createdAt!: Date
+  public readonly updatedAt!: Date
+  public static init2(sequelize: Sequelize) {
+    //sequelize.models
+    this.init(scheme, { sequelize, tableName: 'users', paranoid: false })
+  }
+}

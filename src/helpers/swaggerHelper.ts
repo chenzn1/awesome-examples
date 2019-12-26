@@ -1,6 +1,7 @@
-const swaggerCombine = require('swagger-combine')
-const _ = require('lodash')
-const asyncHelper = require('./asyncHelper')
+import swaggerCombine from 'swagger-combine'
+import _ from 'lodash'
+import asyncHelper from './asyncHelper'
+import swaggerErrorExtractor from './swaggerErrorExtractor'
 
 async function _generateSwaggerConfig(basePath, swaggerYAML, wrappedRoutes) {
   const definitions = await swaggerCombine(swaggerYAML)
@@ -31,7 +32,7 @@ async function generateSwaggerConfig(basePath, swaggerYAMLPath, routes, options 
   return _generateSwaggerConfig(basePath, swaggerYAMLPath, wrappedRoutes)
 }
 
-module.exports = {
+export default {
   generateSwaggerConfig,
-  errorExtractor: require('./swaggerErrorExtractor'),
+  errorExtractor: swaggerErrorExtractor,
 }

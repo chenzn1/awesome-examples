@@ -23,4 +23,4 @@ const errorExtractor = err => {
   }
 }
 
-module.exports = errorExtractor
+export default errorExtractor

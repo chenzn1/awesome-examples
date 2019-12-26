@@ -1,42 +1,43 @@
 'use strict'
+import { QueryInterface, DataTypes } from 'sequelize'
 
 const TABLE_NAME = 'users'
 
 export default {
-  up: (queryInterface, Sequelize) => {
+  up: (queryInterface: QueryInterface) => {
     return queryInterface.createTable(
       TABLE_NAME,
       {
         id: {
-          type: Sequelize.INTEGER.UNSIGNED,
+          type: DataTypes.INTEGER.UNSIGNED,
           primaryKey: true,
           autoIncrement: true,
           allowNull: false,
         },
         nickname: {
-          type: Sequelize.STRING,
+          type: DataTypes.STRING,
           allowNull: false,
         },
         username: {
-          type: Sequelize.STRING,
+          type: DataTypes.STRING,
           allowNull: false,
         },
         createdAt: {
-          type: Sequelize.DATE,
+          type: DataTypes.DATE,
           field: 'created_at',
           allowNull: false,
         },
         updatedAt: {
-          type: Sequelize.DATE,
+          type: DataTypes.DATE,
           field: 'updated_at',
           allowNull: false,
         },
         deletedAt: {
-          type: Sequelize.DATE,
+          type: DataTypes.DATE,
           field: 'deleted_at',
         },
         version: {
-          type: Sequelize.INTEGER,
+          type: DataTypes.INTEGER,
           allowNull: false,
           defaultValue: 0,
         },
@@ -47,7 +48,7 @@ export default {
       }
     )
   },
-  down: queryInterface => {
+  down: (queryInterface: QueryInterface) => {
     return queryInterface.dropTable(TABLE_NAME)
   },
 }
