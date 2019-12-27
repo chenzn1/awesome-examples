@@ -18,7 +18,6 @@ export default {
     dialect: 'mysql',
     port: env.database.port,
     host: env.database.host,
-    operatorsAliases: false,
   },
   umzug: {
     logging: str => {

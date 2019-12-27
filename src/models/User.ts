@@ -40,6 +40,6 @@ export default class User extends Model {
   public readonly updatedAt!: Date
   public static init2(sequelize: Sequelize) {
     //sequelize.models
-    this.init(scheme, { sequelize, tableName: 'users', paranoid: false })
+    this.init(scheme, { sequelize, tableName: 'users' })
   }
 }

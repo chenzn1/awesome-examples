@@ -21,6 +21,20 @@ export default {
         username: {
           type: DataTypes.STRING,
           allowNull: false,
+          unique: true,
+        },
+        password: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        passwordSalt: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          field: 'password_salt',
+        },
+        token: {
+          type: DataTypes.STRING,
+          allowNull: true,
         },
         createdAt: {
           type: DataTypes.DATE,
