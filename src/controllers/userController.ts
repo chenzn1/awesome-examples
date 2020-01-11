@@ -1,9 +1,9 @@
+import { userService } from 'services'
+import { Request, Response } from 'interfaces/http'
 const clientHandlers = {
-  async createUser(req, res) {
-    res.json({ h: 1 })
-  },
-  async loginUser(req, res) {
-    res.json({ h: 2 })
+  registerUser(req: Request, res: Response) {
+    const { username, password } = req.swagger.params.user.value
+    return userService.registerUser({ username, password })
   },
 }
 

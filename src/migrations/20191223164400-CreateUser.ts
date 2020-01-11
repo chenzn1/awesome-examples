@@ -14,10 +14,6 @@ export default {
           autoIncrement: true,
           allowNull: false,
         },
-        nickname: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
         username: {
           type: DataTypes.STRING,
           allowNull: false,

@@ -10,7 +10,7 @@ const allControllers = {
 export default async function(extra = []) {
   // generate swagger config
   const swaggerConfig = await swaggerHelper.generateSwaggerConfig(
-    '/api/v1.0',
+    '/api/v1.0/client',
     path.join(__dirname, 'swagger.yaml'),
     allControllers
   )

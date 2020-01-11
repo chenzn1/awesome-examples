@@ -7,10 +7,6 @@ const scheme = {
     type: DataTypes.INTEGER,
     autoIncrement: true,
   },
-  nickname: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
   username: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -31,7 +27,6 @@ const scheme = {
 
 export default class User extends Model {
   public id!: number
-  public nickname!: string
   public username!: string
   public token!: string | null
   public password!: string

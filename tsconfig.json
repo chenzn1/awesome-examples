@@ -29,6 +29,7 @@
       "helpers/*": ["./helpers/*"],
       "interfaces/*": ["./interfaces/*"],
       "middlewares/*": ["./middlewares/*"],
+      "models": ["./models"],
       "models/*": ["./models/*"],
       "repositories/*": ["./repositories/*"],
       "transformers/*": ["./transformers/*"],

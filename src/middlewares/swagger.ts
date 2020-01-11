@@ -7,11 +7,7 @@ export default {
   generateMiddlewares(config, extra = []) {
     return new Promise(resolve => {
       swagger.initializeMiddleware(config.definitions, middleware => {
-        const middlewareList = []
-        middlewareList.push(middleware.swaggerMetadata())
-        extra.forEach(middleware => {
-          middlewareList.push(asyncHelper(middleware))
-        })
+        const middlewareList = [middleware.swaggerMetadata(), ...extra]
         // turn off validateResponse since our resp don't really follow
         middlewareList.push(middleware.swaggerValidator({ validateResponse: false }))
 

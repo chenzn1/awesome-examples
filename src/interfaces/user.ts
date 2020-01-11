@@ -1,11 +1,11 @@
 export interface UserResponse {
   id: number
-  nickname: string
   username: string
-  token?: string
+  createdAt: number
+  updatedAt: number
 }
 
-export interface CreateAndUpdateUserRequest {
-  nickname: string
-  password?: string
+export interface RegisterUserRequest {
+  username: string
+  password: string
 }
