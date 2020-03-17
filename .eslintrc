@@ -20,12 +20,7 @@
     "jest/no-disabled-tests": "off",
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/no-object-literal-type-assertion": true,
-    "@typescript-eslint/no-empty-function": [
-      "error",
-      {
-        "allow": ["arrowFunctions"]
-      }
-    ],
+    "@typescript-eslint/no-empty-function": 0,
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
