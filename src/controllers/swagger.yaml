@@ -1,0 +1,64 @@
+swagger: '2.0'
+info:
+  title: Zn 的大杂烩 API V1.0
+  description: Zn 的大杂烩 API V1.0
+  version: 2.2.0
+  contact:
+    name: Zn
+    email: 312073339@qq.com
+host: 127.0.0.1:8080
+tags:
+  - name: user
+    description: 用户
+basePath: /api/v1.0/client
+schemes:
+  - http
+paths:
+  '/user/register':
+    x-swagger-router-controller: userController
+    x-auth-schema:
+      - PUBLIC
+    post:
+      tags:
+        - user
+      summary: 注册
+      operationId: registerUser
+      parameters:
+        - in: body
+          name: user
+          required: true
+          schema:
+            $ref: '#/definitions/LoginAndRegisterUserRequest'
+      responses:
+        '200':
+          description: user
+          schema:
+            type: object
+            properties:
+              user:
+                $ref: '#/definitions/User'
+definitions:
+  User:
+    type: object
+    required:
+      - id
+      - username
+    properties:
+      id:
+        type: integer
+      username:
+        type: string
+      createdAt:
+        type: number
+      updatedAt:
+        type: number
+  LoginAndRegisterUserRequest:
+    type: object
+    required:
+      - username
+      - password
+    properties:
+      username:
+        type: string
+      password:
+        type: string

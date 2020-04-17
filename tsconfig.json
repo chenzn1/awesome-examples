@@ -1,0 +1,42 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "inlineSourceMap": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": false,
+    "resolveJsonModule": true,
+    "stripInternal": true,
+    "pretty": true,
+    "declaration": false,
+    "esModuleInterop": true,
+    "allowJs": false,
+    "lib": ["es2018", "dom"],
+    "outDir": "dist/src",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"],
+      "tests/*": ["./tests/*"],
+      "services/*": ["./services/*"],
+      "drivers/*": ["./drivers/*"],
+      "utils/*": ["./utils/*"],
+      "enums/*": ["./enums/*"],
+      "errors/*": ["./errors/*"],
+      "helpers/*": ["./helpers/*"],
+      "interfaces/*": ["./interfaces/*"],
+      "middlewares/*": ["./middlewares/*"],
+      "models": ["./models"],
+      "models/*": ["./models/*"],
+      "repositories/*": ["./repositories/*"],
+      "transformers/*": ["./transformers/*"],
+      "validators/*": ["./validators/*"],
+      "constants/*": ["./constants/*"],
+      "controllers/*": ["./controllers/*"]
+    }
+  },
+  "exclude": ["dist", "node_modules"]
+}
