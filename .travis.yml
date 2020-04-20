@@ -1,0 +1,37 @@
+if: (branch =~ ^master$|^development$) OR (type = pull_request)
+language: node_js
+group: stable
+dist: trusty
+os: linux
+sudo: required
+node_js: 12
+services:
+  - docker
+
+before_install:
+  - npm install -g yarn@^1.10.0
+
+install:
+  - yarn install
+  - npm install -g codecov
+
+before_script:
+  - sudo service mysql stop # workaround fix for `port 3306 address already in use`
+  - docker-compose up -d
+  - cp .env.example .env
+
+script:
+  - yarn lint
+  - travis_retry yarn test --coverage && codecov
+  - yarn build
+
+after_script:
+  - docker-compose stop
+  
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+  
+

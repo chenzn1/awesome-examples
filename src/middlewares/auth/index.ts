@@ -9,8 +9,8 @@ export default (req, res, next) => {
   // if (schema === AUTH_SCHEMA.PUBLIC) {
   //   return next()
   // }
-  // const token = req.headers['hodgepodge-auth-token']
-  // const userId = req.headers['hodgepodge-auth-id']
+  // const token = req.headers['express-fast-framework-auth-token']
+  // const userId = req.headers['express-fast-framework-auth-id']
   // if (!token || !userId) {
   //   throw new InvalidAuthHeaderError()
   // }

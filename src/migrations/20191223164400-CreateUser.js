@@ -1,11 +1,11 @@
 'use strict'
-import { QueryInterface, DataTypes } from 'sequelize'
+const { DataTypes } = require('sequelize')
 
 const TABLE_NAME = 'users'
 
-export default {
-  up: (queryInterface: QueryInterface) => {
-    return queryInterface.createTable(
+module.exports = {
+  up: async queryInterface => {
+    await queryInterface.createTable(
       TABLE_NAME,
       {
         id: {
@@ -27,10 +27,6 @@ export default {
           type: DataTypes.STRING,
           allowNull: false,
           field: 'password_salt',
-        },
-        token: {
-          type: DataTypes.STRING,
-          allowNull: true,
         },
         createdAt: {
           type: DataTypes.DATE,
@@ -58,7 +54,7 @@ export default {
       }
     )
   },
-  down: (queryInterface: QueryInterface) => {
-    return queryInterface.dropTable(TABLE_NAME)
+  down: async queryInterface => {
+    await queryInterface.dropTable(TABLE_NAME)
   },
 }

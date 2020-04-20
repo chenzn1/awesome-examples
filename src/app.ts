@@ -29,7 +29,7 @@ export default {
       //
       res.header(
         'Access-Control-Allow-Headers',
-        'Content-Type, Content-Length, Authorization, Accept, X-Requested-With, hodgepodge-auth-token, hodgepodge-auth-id'
+        'Content-Type, Content-Length, Authorization, Accept, X-Requested-With, express-fast-framework-auth-schema'
       )
       res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, GET, DELETE, OPTIONS')
 

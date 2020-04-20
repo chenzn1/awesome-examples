@@ -1,11 +1,13 @@
-import logger from 'helpers/logger'
-import env from '../../env.json'
+import { envParser } from '@/utils'
+import logger from 'utils/logger'
+
+const credentials = envParser(__dirname, '../../', '.env')
 
 export default {
   database: {
-    database: env.database.database,
-    username: env.database.username,
-    password: env.database.password,
+    database: credentials.DB_DATABASE || 'express_fast_frameword',
+    username: credentials.DB_USER || 'general-user',
+    password: credentials.DB_PASSWORD,
     logging: false,
     define: {
       charset: 'utf8mb4',
@@ -16,8 +18,8 @@ export default {
       paranoid: true,
     },
     dialect: 'mysql',
-    port: env.database.port,
-    host: env.database.host,
+    port: credentials.DB_PORT || '3306',
+    host: credentials.DB_HOST || '127.0.0.1',
   },
   umzug: {
     logging: str => {

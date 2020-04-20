@@ -16,7 +16,7 @@
     "esModuleInterop": true,
     "allowJs": false,
     "lib": ["es2018", "dom"],
-    "outDir": "dist/src",
+    "outDir": "./dist",
     "baseUrl": "./src",
     "paths": {
       "@/*": ["./*"],
@@ -26,7 +26,6 @@
       "utils/*": ["./utils/*"],
       "enums/*": ["./enums/*"],
       "errors/*": ["./errors/*"],
-      "helpers/*": ["./helpers/*"],
       "interfaces/*": ["./interfaces/*"],
       "middlewares/*": ["./middlewares/*"],
       "models": ["./models"],

@@ -25,7 +25,6 @@ module.exports = {
     '^utils($|/.*)': '<rootDir>/src/utils$1',
     '^enums($|/.*)': '<rootDir>/src/enums$1',
     '^errors($|/.*)': '<rootDir>/src/errors$1',
-    '^helpers($|/.*)': '<rootDir>/src/helpers$1',
     '^interfaces($|/.*)': '<rootDir>/src/interfaces$1',
     '^middlewares($|/.*)': '<rootDir>/src/middlewares$1',
     '^models($|/.*)': '<rootDir>/src/models$1',
