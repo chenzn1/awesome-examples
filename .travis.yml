@@ -1,11 +1,12 @@
-if: branch =~ ^master$|^development$
-language: python
+if: (branch =~ ^master$|^development$) OR (type = pull_request)
+language: node_js
 group: stable
 dist: trusty
 os: linux
 sudo: required
+node_js: 12
 services:
-- docker
+  - docker
 
 before_install:
   - npm install -g yarn@^1.10.0

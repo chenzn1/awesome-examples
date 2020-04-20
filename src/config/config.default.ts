@@ -1,11 +1,13 @@
+import { envParser } from '@/helpers'
 import logger from 'helpers/logger'
-import env from '../../env.json'
+
+const credentials = envParser(__dirname, '../../', '.env')
 
 export default {
   database: {
-    database: env.database.database,
-    username: env.database.username,
-    password: env.database.password,
+    database: credentials.DB_DATABASE,
+    username: credentials.DB_USER,
+    password: credentials.DB_PASSWORD,
     logging: false,
     define: {
       charset: 'utf8mb4',
@@ -16,8 +18,8 @@ export default {
       paranoid: true,
     },
     dialect: 'mysql',
-    port: env.database.port,
-    host: env.database.host,
+    port: credentials.DB_PORT,
+    host: credentials.DB_HOST,
   },
   umzug: {
     logging: str => {

@@ -38,6 +38,7 @@
     "@godaddy/terminus": "^4.2.0",
     "body-parser": "~1.17.1",
     "debug": "~2.6.3",
+    "dotenv": "^8.2.0",
     "express": "~4.15.2",
     "fast-redact": "^2.0.0",
     "lodash": "^4.17.15",
