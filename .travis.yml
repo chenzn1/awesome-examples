@@ -1,0 +1,32 @@
+if: branch =~ ^master$|^development$
+language: python
+group: stable
+dist: trusty
+os: linux
+sudo: required
+services:
+- docker
+
+before_install:
+  - npm install -g yarn@^1.10.0
+
+install:
+  - yarn install
+  - npm install -g codecov
+
+before_script:
+  - sudo service mysql stop # workaround fix for `port 3306 address already in use`
+  - docker-compose up -d
+
+script:
+  - yarn lint
+  - travis_retry yarn test --coverage && codecov
+  - yarn build
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+  
+
