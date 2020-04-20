@@ -26,7 +26,6 @@
       "utils/*": ["./utils/*"],
       "enums/*": ["./enums/*"],
       "errors/*": ["./errors/*"],
-      "helpers/*": ["./helpers/*"],
       "interfaces/*": ["./interfaces/*"],
       "middlewares/*": ["./middlewares/*"],
       "models": ["./models"],
