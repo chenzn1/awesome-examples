@@ -1,4 +1,4 @@
-import request, { injectHeader } from 'tests/supertestHelper'
+import request from 'tests/supertestHelper'
 import { userService } from 'services'
 
 let app = null

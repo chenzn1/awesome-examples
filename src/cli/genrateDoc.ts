@@ -1,37 +1,6 @@
-const swaggerCombine = require('swagger-combine')
-const _ = require('lodash')
-const fs = require('fs')
-
-async function handle(params) {
-  await main({
-    outputFile: params.outputFile,
-    inputFile: params.inputFile,
-    host: params.host,
-  })
-}
-
-module.exports = {
-  handle,
-  description: 'create local swagger doc',
-  signature: 'generateDoc',
-  params: {
-    host: {
-      alias: 'H',
-      default: '127.0.0.1',
-      description: 'please input host!!! example:localhost or 127.0.0.1 e:etc',
-    },
-    inputFile: {
-      alias: 'i',
-      default: '.',
-      description: 'please write file input path!!! example:./ or ./src',
-    },
-    outputFile: {
-      alias: 'o',
-      default: './doc',
-      description: 'please write file output path!!! example:./ or ./doc',
-    },
-  },
-}
+import swaggerCombine from 'swagger-combine'
+import _ from 'lodash'
+import fs from 'fs'
 
 async function main(argv) {
   const { host, inputFile, outputFile } = argv
@@ -91,6 +60,14 @@ function parseArgs() {
     }
   }
   return argMap
+}
+
+async function handle(params) {
+  await main({
+    outputFile: params.outputFile,
+    inputFile: params.inputFile,
+    host: params.host,
+  })
 }
 
 if (!module.parent) {

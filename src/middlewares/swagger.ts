@@ -1,6 +1,5 @@
 'use strict'
 import swagger from 'swagger-tools'
-import asyncHelper from 'helpers/asyncHelper'
 
 // const env = require('utils/env')
 export default {
