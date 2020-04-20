@@ -18,6 +18,7 @@ install:
 before_script:
   - sudo service mysql stop # workaround fix for `port 3306 address already in use`
   - docker-compose up -d
+  - cp .env.example .env
 
 script:
   - yarn lint
