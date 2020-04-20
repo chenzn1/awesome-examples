@@ -5,8 +5,8 @@ const credentials = envParser(__dirname, '../../', '.env')
 
 export default {
   database: {
-    database: credentials.DB_DATABASE,
-    username: credentials.DB_USER,
+    database: credentials.DB_DATABASE || 'express_fast_frameword',
+    username: credentials.DB_USER || 'general-user',
     password: credentials.DB_PASSWORD,
     logging: false,
     define: {
@@ -18,8 +18,8 @@ export default {
       paranoid: true,
     },
     dialect: 'mysql',
-    port: credentials.DB_PORT,
-    host: credentials.DB_HOST,
+    port: credentials.DB_PORT || '3306',
+    host: credentials.DB_HOST || '127.0.0.1',
   },
   umzug: {
     logging: str => {

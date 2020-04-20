@@ -25,6 +25,9 @@ script:
   - travis_retry yarn test --coverage && codecov
   - yarn build
 
+after_script:
+  - docker-compose stop
+  
 cache:
   yarn: true
   directories:

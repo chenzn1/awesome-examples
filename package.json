@@ -4,14 +4,14 @@
   "description": "#### Description {**When you're done, you can delete the content in this README and update the file with details for others getting started with your repository**}",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && pm2 start pm2.config.js --env production",
-    "restart": "npm run build && pm2 reload hodgepodge",
-    "build": "cnpm i && rm -rf dist && tsc && cp src/controllers/swagger.yaml dist/controllers/swagger.yaml",
+    "start": "yarn build && pm2 start pm2.config.js --env production",
+    "restart": "yarn build && pm2 reload hodgepodge",
+    "build": "yarn && rm -rf dist && tsc && cp src/controllers/swagger.yaml dist/controllers/swagger.yaml",
     "dev": "nodemon ./src/index.ts dev --exec ts-node",
     "lint": "eslint src --ext .js,.ts",
     "lint:fix": "eslint src --fix --ext .js,.ts",
     "test": "jest --runInBand",
-    "test:watch": "npm test --watch"
+    "test:watch": "yarn test --watch"
   },
   "husky": {
     "hooks": {
