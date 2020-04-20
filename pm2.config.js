@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'hodgepodge',
+      name: 'express-fast-framework',
       instances: '1',
       exec_mode: 'cluster',
       script: './dist/index.js',
