@@ -1,9 +1,9 @@
-import logger from 'helpers/logger'
+import logger from 'utils/logger'
 import * as errors from 'errors'
 import _ from 'lodash'
 import fastRedact from 'fast-redact'
 import { ValidationError } from 'sequelize'
-import swaggerHelper from 'helpers/swaggerHelper'
+import swaggerHelper from 'utils/swaggerHelper'
 
 const redact = fastRedact({
   paths: ['*.userPIN'],

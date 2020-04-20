@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import path from 'path'
-import swaggerHelper from 'helpers/swaggerHelper'
+import swaggerHelper from 'utils/swaggerHelper'
 import swagger from 'middlewares/swagger'
 import userController from './userController'
 const allControllers = {

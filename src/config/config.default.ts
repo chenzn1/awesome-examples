@@ -1,5 +1,5 @@
-import { envParser } from '@/helpers'
-import logger from 'helpers/logger'
+import { envParser } from '@/utils'
+import logger from 'utils/logger'
 
 const credentials = envParser(__dirname, '../../', '.env')
 

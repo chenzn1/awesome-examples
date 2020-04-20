@@ -1,5 +1,5 @@
 require('tsconfig-paths/register')
-import logger from 'helpers/logger'
+import logger from 'utils/logger'
 import fixtures from 'tests/fixtures'
 import { sequelize } from 'models'
 async function createFixtures() {

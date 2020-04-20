@@ -2,7 +2,7 @@ import { User } from 'models'
 import { RegisterUserRequest, UserResponse } from 'interfaces/user'
 import userRegisterValidator from 'validators/userRegisterValidator'
 import { getUserResponse } from 'transformers/user'
-import helpers from '@/helpers'
+import utils from '@/utils'
 import randomstring from 'randomstring'
 
 export default {
@@ -14,7 +14,7 @@ export default {
     const user = await User.create({
       username,
       passwordSalt,
-      password: helpers.getEncryptedPassword(password, passwordSalt),
+      password: utils.getEncryptedPassword(password, passwordSalt),
     })
     return getUserResponse(user)
   },

@@ -25,7 +25,7 @@ function addModulesAlias() {
 addModulesAlias()
 
 import http from 'http'
-import logger from './helpers/logger'
+import logger from './utils/logger'
 import { createTerminus } from '@godaddy/terminus'
 import app from './app'
 import umzug from './drivers/umzug'

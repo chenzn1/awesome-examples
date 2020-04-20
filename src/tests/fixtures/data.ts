@@ -1,4 +1,4 @@
-import helper from '@/helpers'
+import helper from '@/utils'
 import randomstring from 'randomstring'
 
 const passwordSalt1 = randomstring.generate(32)
