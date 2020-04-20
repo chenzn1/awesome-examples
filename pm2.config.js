@@ -13,10 +13,10 @@ module.exports = {
         autorestart: true,
       },
       env_production: {
-        HODGEPODGE_ENV: 'prod',
+        EFF_NODE_CONFIG_ENV: 'production',
       },
       env_development: {
-        HODGEPODGE_ENV: 'dev',
+        EFF_NODE_CONFIG_ENV: 'development',
       },
     },
   ],
