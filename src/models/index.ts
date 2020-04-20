@@ -1,5 +1,7 @@
 import sequelize from '../drivers/sequelize'
-import User from './User'
+import { User, initUser } from './User'
 
-User.init2(sequelize)
+// init model
+;[initUser].forEach(initFunc => initFunc(sequelize))
+
 export { sequelize, User }

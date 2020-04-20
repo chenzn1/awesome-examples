@@ -7,7 +7,6 @@ import _ from 'lodash'
 
 const umzug = new Umzug({
   storage: 'sequelize',
-  // @ts-ignore：版本差异
   storageOptions: { sequelize },
   // see: https://github.com/sequelize/umzug/issues/17
   migrations: {
@@ -20,9 +19,8 @@ const umzug = new Umzug({
       },
     ],
     path: path.join(__dirname, '../migrations'),
-    pattern: /\.ts$/,
+    pattern: /\.js$/,
   },
-
   logging: config.umzug.logging,
 })
 
