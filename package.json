@@ -1,5 +1,5 @@
 {
-  "name": "hodgepodge",
+  "name": "express-fast-framework",
   "version": "1.0.0",
   "description": "#### Description {**When you're done, you can delete the content in this README and update the file with details for others getting started with your repository**}",
   "main": "index.js",
@@ -8,8 +8,8 @@
     "restart": "npm run build && pm2 reload hodgepodge",
     "build": "cnpm i && rm -rf dist && tsc && cp src/controllers/swagger.yaml dist/controllers/swagger.yaml",
     "dev": "nodemon ./src/index.ts dev --exec ts-node",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
+    "lint": "eslint src --ext .js,.ts",
+    "lint:fix": "eslint src --fix --ext .js,.ts",
     "test": "jest --runInBand",
     "test:watch": "npm test --watch"
   },
@@ -24,20 +24,19 @@
   },
   "lint-staged": {
     "*.ts": [
-      "eslint src --fix",
+      "eslint src --fix --ext .js,.ts",
       "git add"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "git@gitee.com:zorn/hodgepodge-backend.git"
+    "url": "https://github.com/michaelchan0101/express-fast-framework.git"
   },
   "author": "Zn",
   "license": "ISC",
   "dependencies": {
     "@godaddy/terminus": "^4.2.0",
     "body-parser": "~1.17.1",
-    "chalk": "^2.4.2",
     "debug": "~2.6.3",
     "express": "~4.15.2",
     "fast-redact": "^2.0.0",
@@ -48,13 +47,11 @@
     "mysql2": "^1.7.0",
     "pretty-error": "^2.1.1",
     "randomstring": "^1.1.5",
-    "request": "^2.88.0",
     "sequelize": "^5.21.3",
     "serve-favicon": "~2.4.2",
     "swagger-combine": "^1.0.0",
     "swagger-tools": "^0.10.4",
-    "umzug": "^2.2.0",
-    "yargs": "^14.2.3"
+    "umzug": "^2.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
