@@ -1,5 +1,4 @@
 require('tsconfig-paths/register')
-import logger from 'utils/logger'
 import fixtures from 'tests/fixtures'
 import { sequelize } from 'models'
 async function createFixtures() {
@@ -31,7 +30,7 @@ async function turnOffAllConnections() {
  */
 
 global.beforeAll(async () => {
-  logger.info('SETUP: beforeAll')
+  // logger.info('SETUP: beforeAll')
   // The temperate solution for resolving the CI testcase timeout error
   // for some controllers that costs huge time
   //
@@ -46,14 +45,14 @@ global.beforeAll(async () => {
   }
   if (global.usedJestResetModules) await turnOffAllConnections()
 
-  logger.info('SETUP: beforeAll finish')
+  // logger.info('SETUP: beforeAll finish')
 })
 
 global.afterAll(async () => {
-  logger.info('FRAMEWORK TEARDOWN: afterAll')
+  // logger.info('FRAMEWORK TEARDOWN: afterAll')
 
   await clearFixtures()
   await turnOffAllConnections()
 
-  logger.info('FRAMEWORK TEARDOWN: afterAll finish')
+  // logger.info('FRAMEWORK TEARDOWN: afterAll finish')
 })

@@ -1,2 +1,2 @@
-import userService from './userService'
+import userService from './user.service'
 export { userService }

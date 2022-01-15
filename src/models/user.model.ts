@@ -21,7 +21,7 @@ const scheme = {
   },
 }
 
-export class User extends Model {
+export class UserModel extends Model {
   public id!: number
   public username!: string
   public password!: string
@@ -30,6 +30,6 @@ export class User extends Model {
   public readonly updatedAt!: Date
 }
 
-export function initUser(sequelize: Sequelize) {
-  User.init(scheme, { sequelize, tableName: 'users' })
+export function initUserModel(sequelize: Sequelize) {
+  UserModel.init(scheme, { sequelize, tableName: 'users' })
 }

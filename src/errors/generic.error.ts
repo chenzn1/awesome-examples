@@ -1,4 +1,4 @@
-import { BaseError } from './baseError'
+import { BaseError } from './base.error'
 
 // class 100: Generic error
 class GenericError extends BaseError {

@@ -5,7 +5,7 @@ const credentials = envParser(__dirname, '../../', '.env')
 
 export default {
   database: {
-    database: credentials.DB_DATABASE || 'express_fast_frameword',
+    database: credentials.DB_DATABASE || 'express_fast_framework',
     username: credentials.DB_USER || 'general-user',
     password: credentials.DB_PASSWORD,
     logging: false,

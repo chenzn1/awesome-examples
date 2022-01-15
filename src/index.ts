@@ -51,7 +51,7 @@ function normalizePort(val: string): any {
 
 async function main() {
   await umzug.umzugUp()
-  const apiServer = await app.createApiServer()
+  const apiServer = await app.createAPIServer()
 
   /**
    * Get port from environment and store in Express.

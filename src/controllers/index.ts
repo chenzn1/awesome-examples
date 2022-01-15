@@ -2,7 +2,7 @@ import _ from 'lodash'
 import path from 'path'
 import swaggerHelper from 'utils/swaggerHelper'
 import swagger from 'middlewares/swagger'
-import userController from './userController'
+import userController from './user.controller'
 const allControllers = {
   userController,
 }
@@ -10,7 +10,7 @@ const allControllers = {
 export default async function(extra = []) {
   // generate swagger config
   const swaggerConfig = await swaggerHelper.generateSwaggerConfig(
-    '/api/v1.0/client',
+    '/api/v1.0',
     path.join(__dirname, 'swagger.yaml'),
     allControllers
   )

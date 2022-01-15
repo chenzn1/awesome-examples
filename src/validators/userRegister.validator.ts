@@ -1,5 +1,5 @@
 import { RegisterUserRequest } from 'interfaces/user'
-import { User } from 'models'
+import { UserModel } from 'models'
 import { UserExistError, ValidationError } from '@/errors'
 
 class UserRegisterValidator {
@@ -9,7 +9,7 @@ class UserRegisterValidator {
   }
   public async username() {
     const { username } = this.request
-    const user = await User.findOne({ where: { username } })
+    const user = await UserModel.findOne({ where: { username } })
     if (user) {
       throw new UserExistError(username)
     }

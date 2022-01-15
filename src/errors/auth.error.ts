@@ -1,4 +1,4 @@
-import { BaseError } from './baseError'
+import { BaseError } from './base.error'
 class AuthError extends BaseError {
   constructor(statusCode, errorCode, message, err = '', data = null) {
     super(statusCode, 101, errorCode, message, err, data)

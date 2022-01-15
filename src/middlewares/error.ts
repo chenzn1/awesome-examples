@@ -10,12 +10,12 @@ const redact = fastRedact({
   serialize: false,
 })
 
-function getReqParams(req) {
+function getRequestParams(req) {
+  const params = _.get(req, 'swagger.params', {})
   return redact(
-    _(req)
+    _(params)
       .chain()
       // @ts-ignore
-      .get('swagger.params', {})
       .cloneDeep()
       .mapValues(val => val.value)
       .value()
@@ -23,7 +23,7 @@ function getReqParams(req) {
 }
 
 export default {
-  getReqParams, // export for easier test case
+  getRequestParams, // export for easier test case
   generalErrorHandler(err, req, res, next) {
     // Wrap sequelize validation errors
     if (err instanceof ValidationError) {
@@ -36,7 +36,7 @@ export default {
         'known errors - %s|user:%j|params:%j',
         err,
         req.users || req.user,
-        getReqParams(req)
+        getRequestParams(req)
       )
       e = err
     } else {
@@ -46,7 +46,7 @@ export default {
         err,
         e.details,
         req.users || req.user,
-        getReqParams(req)
+        getRequestParams(req)
       )
     }
     res.status(e.statusCode).json(e.toJson())

@@ -17,7 +17,7 @@ async function loadMainControllers(app) {
 }
 
 export default {
-  async createApiServer() {
+  async createAPIServer() {
     const app = express()
     // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
     // app.use(logger('dev'))

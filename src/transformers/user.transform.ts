@@ -1,6 +1,6 @@
-import { User } from 'models'
+import { UserModel } from 'models'
 import { UserResponse } from 'interfaces/user'
-function getUserResponse(user: User): UserResponse {
+function getUserResponse(user: UserModel): UserResponse {
   return {
     id: user.id,
     username: user.username,

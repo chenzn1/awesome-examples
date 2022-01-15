@@ -31,7 +31,6 @@ module.exports = {
     '^repositories($|/.*)': '<rootDir>/src/repositories$1',
     '^transformers($|/.*)': '<rootDir>/src/transformers$1',
     '^validators($|/.*)': '<rootDir>/src/validators$1',
-    '^constants($|/.*)': '<rootDir>/src/constants$1',
     '^controllers($|/.*)': '<rootDir>/src/controllers$1',
   },
 }

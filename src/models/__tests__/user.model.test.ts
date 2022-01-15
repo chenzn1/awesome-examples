@@ -1,7 +1,7 @@
 global.cleanData = true
 global.loadFixtures = false
 import { UniqueConstraintError } from 'sequelize'
-import { User } from '../'
+import { UserModel } from '..'
 describe('User Model', () => {
   test('create user success', async () => {
     const exampleData = {
@@ -10,7 +10,7 @@ describe('User Model', () => {
       passwordSalt: 'xxxx',
     }
 
-    const result = await User.create(exampleData)
+    const result = await UserModel.create(exampleData)
     expect(result.username).toEqual(exampleData.username)
     expect(result.password).toEqual(exampleData.password)
     expect(result.passwordSalt).toEqual(exampleData.passwordSalt)
@@ -23,6 +23,6 @@ describe('User Model', () => {
       password: 'xxx',
       passwordSalt: 'xxx',
     }
-    await expect(User.create(exampleData)).rejects.toThrow(UniqueConstraintError)
+    await expect(UserModel.create(exampleData)).rejects.toThrow(UniqueConstraintError)
   })
 })

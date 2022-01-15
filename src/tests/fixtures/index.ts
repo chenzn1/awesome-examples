@@ -1,7 +1,7 @@
 import data from './data'
-import { sequelize, User } from '../../models'
+import { sequelize, UserModel } from '../../models'
 async function truncateModel() {
-  const models = [User]
+  const models = [UserModel]
   for (const model of models) {
     await model.destroy({ where: {}, force: true })
   }
@@ -20,7 +20,7 @@ export default {
     await truncateModel()
     const returnData = {}
     if (data['users']) {
-      returnData['users'] = await User.bulkCreate(data['users'])
+      returnData['users'] = await UserModel.bulkCreate(data['users'])
     }
     return returnData
   },
