@@ -1,7 +1,7 @@
 import swaggerCombine from 'swagger-combine'
 import _ from 'lodash'
-import asyncHelper from './asyncHelper'
-import swaggerErrorExtractor from './swaggerErrorExtractor'
+import asyncHelper from './async.helper'
+import swaggerErrorExtractor from './swagger-error.extractor'
 
 async function _generateSwaggerConfig(basePath, swaggerYAML, wrappedRoutes) {
   const definitions = await swaggerCombine(swaggerYAML)

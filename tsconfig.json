@@ -31,7 +31,7 @@
       "models": ["./models"],
       "models/*": ["./models/*"],
       "repositories/*": ["./repositories/*"],
-      "transformers/*": ["./transformers/*"],
+      "transforms/*": ["./transforms/*"],
       "validators/*": ["./validators/*"],
       "constants/*": ["./constants/*"],
       "controllers/*": ["./controllers/*"]

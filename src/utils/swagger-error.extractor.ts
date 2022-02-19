@@ -1,4 +1,4 @@
-const errorExtractor = err => {
+const swaggerErrorExtractor = err => {
   const { results, code, paramName } = err
 
   if (results && results.errors) {
@@ -23,4 +23,4 @@ const errorExtractor = err => {
   }
 }
 
-export default errorExtractor
+export default swaggerErrorExtractor

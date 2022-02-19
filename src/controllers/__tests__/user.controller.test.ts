@@ -1,4 +1,4 @@
-import request from 'tests/supertestHelper'
+import request from '@/tests/supertest.helper'
 import { userService } from 'services'
 
 let app = null

@@ -3,7 +3,7 @@ import * as errors from 'errors'
 import _ from 'lodash'
 import fastRedact from 'fast-redact'
 import { ValidationError } from 'sequelize'
-import swaggerHelper from 'utils/swaggerHelper'
+import swaggerHelper from '@/utils/swagger.helper'
 
 const redact = fastRedact({
   paths: ['*.userPIN'],
