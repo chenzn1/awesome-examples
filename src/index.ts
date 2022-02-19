@@ -27,7 +27,7 @@ addModulesAlias()
 import http from 'http'
 import logger from './utils/logger'
 import { createTerminus } from '@godaddy/terminus'
-import app from './app'
+import { createAPIServer } from './app'
 import umzug from './drivers/umzug'
 /**
  * Normalize a port into a number, string, or false.
@@ -51,7 +51,7 @@ function normalizePort(val: string): any {
 
 async function main() {
   await umzug.umzugUp()
-  const apiServer = await app.createAPIServer()
+  const apiServer = await createAPIServer()
 
   /**
    * Get port from environment and store in Express.
