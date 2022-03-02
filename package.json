@@ -45,7 +45,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "fast-redact": "^2.0.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "module-alias": "^2.2.2",
     "moment": "^2.24.0",
     "morgan": "~1.9.1",
