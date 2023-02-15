@@ -13,22 +13,15 @@
     "lint:fix": "eslint src --fix --ext .js,.ts",
     "test": "jest --runInBand --config ./jest.config.js",
     "test:watch": "yarn test --watch --config ./jest.config.js",
-    "tsc": "tsc"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
+    "tsc": "tsc",
+    "prepare": "husky install"
   },
   "jest": {
     "preset": "ts-jest"
   },
   "lint-staged": {
     "*.ts": [
-      "eslint src --fix --ext .js,.ts",
-      "git add"
-    ]
+      "eslint src --fix --ext .js,.ts"    ]
   },
   "repository": {
     "type": "git",
@@ -80,7 +73,7 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "husky": "^4.2.3",
+    "husky": "^8.0.3",
     "jest": "^27.4.7",
     "lint-staged": "^10.0.8",
     "nodemon": "^1.19.4",

@@ -1,5 +1,6 @@
 import request from '@/tests/supertest.helper'
 import { userService } from 'services'
+import { createAPIServer } from '@/app'
 
 let app = null
 jest.mock('services/user.service')
@@ -7,7 +8,7 @@ jest.mock('services/user.service')
 const mockedUserService = userService as jest.Mocked<typeof userService>
 describe('UserController', () => {
   beforeAll(async () => {
-    app = await require('@/app').default.createAPIServer()
+    app = await createAPIServer()
   })
   const fakeUserResp: any = {
     id: 1,
