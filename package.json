@@ -41,7 +41,7 @@
   "dependencies": {
     "@godaddy/terminus": "^4.2.0",
     "body-parser": "~1.17.1",
-    "debug": "~2.6.3",
+    "debug": "~3.1.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "fast-redact": "^2.0.0",
