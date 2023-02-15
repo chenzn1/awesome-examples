@@ -1,0 +1,23 @@
+name: unit tests
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - uses: isbang/compose-action@v1.4.1
+        with:
+          compose-file: "./docker-compose.yaml"
+      - run: cp .env.example .env
+      - run: yarn install --frozen-lockfile
+      - run: yarn lint
+      - run: yarn tsc
+      - run: yarn test

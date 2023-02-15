@@ -11,8 +11,9 @@
     "dev": "nodemon ./src/index.ts dev --exec ts-node",
     "lint": "eslint src --ext .js,.ts",
     "lint:fix": "eslint src --fix --ext .js,.ts",
-    "test": "jest --runInBand",
-    "test:watch": "yarn test --watch"
+    "test": "jest --runInBand --config ./jest.config.js",
+    "test:watch": "yarn test --watch --config ./jest.config.js",
+    "tsc": "tsc"
   },
   "husky": {
     "hooks": {
