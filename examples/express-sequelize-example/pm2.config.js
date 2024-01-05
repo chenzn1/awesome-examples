@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'express-fast-framework',
+      name: 'express-sequelize-example',
       instances: '1',
       exec_mode: 'cluster',
       script: './dist/index.js',

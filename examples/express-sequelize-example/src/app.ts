@@ -7,6 +7,7 @@ import authRouter from 'middlewares/auth'
 import controllerFunc from 'controllers'
 logger.token('ip', (req, res): string => {
   //req.headers['x-forwarded-for'] ||
+  // @ts-ignore
   return req.ip || req.connection.remoteAddress
 })
 
@@ -28,7 +29,7 @@ export async function createAPIServer() {
     //
     res.header(
       'Access-Control-Allow-Headers',
-      'Content-Type, Content-Length, Authorization, Accept, X-Requested-With, express-fast-framework-auth-schema'
+      'Content-Type, Content-Length, Authorization, Accept, X-Requested-With'
     )
     res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, GET, DELETE, OPTIONS')
 

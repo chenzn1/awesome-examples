@@ -1,6 +1,5 @@
 # Express Fast Framework
 是基于 `Express` 和 `TypeScript` 搭建的后端快速开发框架  
-[![Build Status](https://travis-ci.com/michaelchan0101/express-fast-framework.svg?branch=development)](https://travis-ci.com/michaelchan0101/express-fast-framework)
 
 ## 介绍
 

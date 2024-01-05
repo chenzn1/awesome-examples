@@ -1,13 +1,13 @@
-# This docker-compose file is for local development only
-version: "3.2"
+version: '3.8'
 services:
-  mysql:
+  db:
+    platform: linux/x86_64
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_USER=general-user
       - MYSQL_PASSWORD=password
-      - MYSQL_DATABASE=express_fast_framework
+      - MYSQL_DATABASE=express_sequelize_example
     ports:
       - target: 3306
         published: 3306
