@@ -1,0 +1,19 @@
+{
+  "name": "some-examples",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "workspaces": [
+    "examples/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@8.9.0",
+  "devDependencies": {
+    "turbo": "^1.11.3"
+  }
+}
