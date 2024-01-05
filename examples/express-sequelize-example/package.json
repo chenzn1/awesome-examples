@@ -1,18 +1,18 @@
 {
-  "name": "express-fast-framework",
+  "name": "express-sequelize-example",
   "version": "1.0.0",
   "description": "#### Description {**When you're done, you can delete the content in this README and update the file with details for others getting started with your repository**}",
   "main": "index.js",
   "scripts": {
-    "start": "yarn build && pm2 start pm2.config.js --env production",
-    "restart": "yarn build && pm2 reload express-fast-framework",
+    "start": "pnpm build && pm2 start pm2.config.js --env production",
+    "restart": "pnpm build && pm2 reload express-sequelize-example",
     "clean": "rm -rf dist/",
-    "build": "yarn clean && tsc && cp -rf src/migrations dist/migrations && cp src/controllers/swagger.yaml dist/controllers/swagger.yaml",
+    "build": "pnpm clean && tsc && cp -rf src/migrations dist/migrations && cp src/controllers/swagger.yaml dist/controllers/swagger.yaml",
     "dev": "nodemon ./src/index.ts dev --exec ts-node",
     "lint": "eslint src --ext .js,.ts",
     "lint:fix": "eslint src --fix --ext .js,.ts",
     "test": "jest --runInBand --config ./jest.config.js",
-    "test:watch": "yarn test --watch --config ./jest.config.js",
+    "test:watch": "pnpm test --watch --config ./jest.config.js",
     "tsc": "tsc",
     "prepare": "husky install"
   },
@@ -21,17 +21,14 @@
   },
   "lint-staged": {
     "*.ts": [
-      "eslint src --fix --ext .js,.ts"    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/michaelchan0101/express-fast-framework.git"
+      "eslint src --fix --ext .js,.ts"
+    ]
   },
   "engines": {
     "node": ">= 12"
   },
   "author": "Zn",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@godaddy/terminus": "^4.2.0",
     "body-parser": "~1.17.1",
