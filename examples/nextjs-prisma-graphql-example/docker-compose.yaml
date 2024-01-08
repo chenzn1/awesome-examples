@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: nextjs-prisma-graphql-example
+      POSTGRES_USER: nouser
+      POSTGRES_PASSWORD: nopassword
+    ports:
+      - '5432:5432'
+    tty: true
