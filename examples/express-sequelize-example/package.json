@@ -13,8 +13,7 @@
     "lint:fix": "eslint src --fix --ext .js,.ts",
     "test": "jest --runInBand --config ./jest.config.js",
     "test:watch": "pnpm test --watch --config ./jest.config.js",
-    "tsc": "tsc",
-    "prepare": "husky install"
+    "tsc": "tsc"
   },
   "jest": {
     "preset": "ts-jest"
@@ -50,8 +49,6 @@
     "umzug": "^2.2.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
     "@types/express": "4.17.1",
     "@types/jest": "^24.0.24",
     "@types/morgan": "^1.7.37",
