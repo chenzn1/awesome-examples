@@ -1,8 +1,26 @@
 import prisma from "../drives/prisma";
-import { User, UsersFilter, UsersOrderBy } from "../entities";
+import { CreateUserInput, User, UsersFilter, UsersOrderBy } from "../entities";
 import builder from "../graphql-builder";
+import { createUser, deleteUser, updateUser } from "../services";
 
 builder.queryFields(t => ({
+	userTotalCount: t.field({
+		type: 'Int',
+		nullable: false,
+		args: {
+			where: t.arg({ type: UsersFilter, required: false }),
+		},
+		resolve: async (__, args, ctx) => {
+			const { where } = args;
+			const count = await prisma.user.count({
+				where: {
+					...where,
+          deleted: false
+				},
+			});
+			return count;
+		},
+	}),
   users: t.prismaField({
 		type: [User],
 		nullable: false,
@@ -28,4 +46,32 @@ builder.queryFields(t => ({
 			return list;
 		},
 	}),
+}))
+
+builder.mutationFields(t => ({
+	createUser: t.field({
+		type: User,
+		nullable: false,
+		args: {
+			data: t.arg({ type: CreateUserInput, required: true }),
+		},
+		resolve: (_, args) => createUser(args.data)
+	}),
+	updateUser: t.field({
+		type: User,
+		nullable: false,
+		args: {
+			id: t.arg({ type: 'String', required: true  }),
+			data: t.arg({ type: CreateUserInput, required: true }),
+		},
+		resolve: (_, args) => updateUser(args.id, args.data)
+	}),
+	deleteUser: t.field({
+		type: 'Boolean',
+		nullable: false,
+		args: {
+			id: t.arg({ type: 'String', required: true  }),
+		},
+		resolve: (_, args) => deleteUser(args.id)
+	})
 }))

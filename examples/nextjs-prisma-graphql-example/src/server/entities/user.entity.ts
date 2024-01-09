@@ -13,7 +13,7 @@ export const User = builder.prismaObject('User', {
 
 export const CreateUserInput = builder.inputType('CreateUserInput', {
   fields: t => ({
-    name: t.string(),
+    name: t.string({required: true}),
   }),
 })
 
