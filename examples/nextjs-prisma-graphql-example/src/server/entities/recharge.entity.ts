@@ -18,15 +18,15 @@ export const Recharge = builder.prismaObject('Recharge', {
 
 export const CreateRechargeInput = builder.inputType('CreateRechargeInput', {
   fields: t => ({
-    amount: t.float(),
-    userId: t.string(),
+    amount: t.float({required: true}),
+    userId: t.string({required: true}),
   }),
 })
 
 export const UpdateRechargeInput = builder.inputType('UpdateRechargeInput', {
   fields: t => ({
-    amount: t.float({required: false}),
-    status: t.field({ required: false, type: RechargeStatus}),
+    amount: t.float({required: true}),
+    status: t.field({ required: true, type: RechargeStatus}),
   }),
 })
 
