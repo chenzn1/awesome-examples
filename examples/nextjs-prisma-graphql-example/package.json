@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate": "pnpm run generate:schema && pnpm run generate:graphql-codegen",
+    "generate:schema": "cross-env GENERATE=true cross-env DOTENV_CONFIG_PATH=.env.example ts-node --require dotenv/config -r tsconfig-paths/register --transpile-only -P pothos.tsconfig.json src/server/graphql-schema.ts",
+    "generate:graphql-codegen": "rm -f src/client/graphql/*.generated.ts && graphql-codegen"
   },
   "dependencies": {
     "@pothos/core": "^3.41.0",
@@ -15,6 +18,7 @@
     "@pothos/plugin-relay": "^3.45.1",
     "@pothos/plugin-tracing": "^0.5.8",
     "@prisma/client": "^5.7.1",
+    "@tanstack/react-query": "^5.17.9",
     "graphql": "^16.8.1",
     "graphql-scalars": "^1.22.4",
     "next": "14.0.4",
@@ -22,15 +26,23 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/near-operation-file-preset": "^3.0.0",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
+    "@graphql-codegen/typescript-react-query": "^6.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "cross-env": "^7.0.3",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8",
     "prisma": "^5.7.1",
     "tailwindcss": "^3.3.0",
+    "ts-node": "^10.4.0",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^5"
   }
 }
