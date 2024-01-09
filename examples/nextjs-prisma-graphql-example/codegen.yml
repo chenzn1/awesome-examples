@@ -16,6 +16,11 @@ generates:
   ./:
     config:
       skipTypename: true
+      nonOptionalTypename: true
+      legacyMode: false
+      reactQueryVersion: 5
+      fetcher:
+        func: \@/client/utils/fetcher#graphqlFetch
     preset: near-operation-file
     presetConfig:
       baseTypesPath: src/client/graphql/__generated__/types.generated.ts
