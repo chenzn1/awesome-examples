@@ -9,7 +9,7 @@
     "lint": "next lint",
     "generate": "pnpm run generate:schema && pnpm run generate:graphql-codegen",
     "generate:schema": "cross-env GENERATE=true cross-env DOTENV_CONFIG_PATH=.env.example ts-node --require dotenv/config -r tsconfig-paths/register --transpile-only -P pothos.tsconfig.json src/server/graphql-schema.ts",
-    "generate:graphql-codegen": "rm -f src/client/graphql/*.generated.ts && graphql-codegen"
+    "generate:graphql-codegen": "rm -f src/client/graphql/__generated__/* && graphql-codegen"
   },
   "dependencies": {
     "@pothos/core": "^3.41.0",
@@ -19,11 +19,18 @@
     "@pothos/plugin-tracing": "^0.5.8",
     "@prisma/client": "^5.7.1",
     "@tanstack/react-query": "^5.17.9",
+    "@tanstack/react-table": "^8.11.3",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
     "graphql": "^16.8.1",
     "graphql-scalars": "^1.22.4",
+    "graphql-yoga": "^5.1.1",
+    "lucide-react": "^0.307.0",
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwind-merge": "^2.2.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.0",
