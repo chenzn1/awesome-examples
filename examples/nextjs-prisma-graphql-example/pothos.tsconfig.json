@@ -1,0 +1,17 @@
+{
+	/*
+    This file is used as a workaround for https://github.com/graphql-nexus/schema/issues/391
+    It allows the Pothos schema generation to work (done via `npm run generate:schema`).
+  */
+	"compilerOptions": {
+		"sourceMap": true,
+		"outDir": "dist",
+		"strict": true,
+		"lib": ["esnext"],
+		"esModuleInterop": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	}
+}

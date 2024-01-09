@@ -1,0 +1,9 @@
+query users($where: UsersFilter, $orderBy: UsersOrderBy, $take: Int!, $skip: Int!) {
+  users(where: $where, orderBy: $orderBy, take: $take, skip: $skip) {
+    id
+    name
+    balance
+    createdAt
+    updatedAt
+  }
+}

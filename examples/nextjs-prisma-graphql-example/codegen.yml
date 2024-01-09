@@ -1,0 +1,25 @@
+schema: ./src/server/schema.graphql
+overwrite: true
+
+documents:
+  - '**/*.graphql'
+  - '!src/server/schema.graphql'
+
+hooks:
+  afterAllFileWrite:
+    - 'prettier --write'
+
+generates:
+  src/client/graphql/__generated__/types.generated.ts:
+    plugins:
+      - typescript
+  ./:
+    config:
+      skipTypename: true
+    preset: near-operation-file
+    presetConfig:
+      baseTypesPath: src/client/graphql/__generated__/types.generated.ts
+      folder: __generated__
+    plugins:
+      - typescript-operations
+      - typescript-react-query
