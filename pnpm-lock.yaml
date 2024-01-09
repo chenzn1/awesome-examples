@@ -174,9 +174,27 @@ importers:
       '@pothos/core':
         specifier: ^3.41.0
         version: 3.41.0(graphql@16.8.1)
+      '@pothos/plugin-prisma':
+        specifier: ^3.63.1
+        version: 3.63.1(@pothos/core@3.41.0)(@prisma/client@5.7.1)(graphql@16.8.1)(typescript@5.3.3)
+      '@pothos/plugin-prisma-utils':
+        specifier: ^0.14.0
+        version: 0.14.0(@pothos/core@3.41.0)(@pothos/plugin-prisma@3.63.1)(@prisma/client@5.7.1)(graphql@16.8.1)
+      '@pothos/plugin-relay':
+        specifier: ^3.45.1
+        version: 3.45.1(@pothos/core@3.41.0)(graphql@16.8.1)
+      '@pothos/plugin-tracing':
+        specifier: ^0.5.8
+        version: 0.5.8(@pothos/core@3.41.0)(graphql@16.8.1)
       '@prisma/client':
         specifier: ^5.7.1
         version: 5.7.1(prisma@5.7.1)
+      graphql:
+        specifier: ^16.8.1
+        version: 16.8.1
+      graphql-scalars:
+        specifier: ^1.22.4
+        version: 1.22.4(graphql@16.8.1)
       next:
         specifier: 14.0.4
         version: 14.0.4(react-dom@18.2.0)(react@18.2.0)
@@ -1781,6 +1799,57 @@ packages:
       graphql: 16.8.1
     dev: false
 
+  /@pothos/plugin-prisma-utils@0.14.0(@pothos/core@3.41.0)(@pothos/plugin-prisma@3.63.1)(@prisma/client@5.7.1)(graphql@16.8.1):
+    resolution: {integrity: sha512-8oSHz2voUhqzkYzxscwc5dOaOKr1pftoD5Ewb+Zf53J6z0tX492GwSZXo8iUwYSH2pHgx2rDETyGJhvRNq4Y6A==}
+    peerDependencies:
+      '@pothos/core': '*'
+      '@pothos/plugin-prisma': '*'
+      '@prisma/client': '*'
+      graphql: '>=15.1.0'
+    dependencies:
+      '@pothos/core': 3.41.0(graphql@16.8.1)
+      '@pothos/plugin-prisma': 3.63.1(@pothos/core@3.41.0)(@prisma/client@5.7.1)(graphql@16.8.1)(typescript@5.3.3)
+      '@prisma/client': 5.7.1(prisma@5.7.1)
+      '@prisma/generator-helper': 5.7.1
+      graphql: 16.8.1
+    dev: false
+
+  /@pothos/plugin-prisma@3.63.1(@pothos/core@3.41.0)(@prisma/client@5.7.1)(graphql@16.8.1)(typescript@5.3.3):
+    resolution: {integrity: sha512-WbbB6Hn1v8lop/krhMYN1Fjz8CoQeZE/emDs/BgEmtXud1qr174hm+x1aX5U7oyGJ2z67z6RfCyHbpOAx8zo3w==}
+    hasBin: true
+    peerDependencies:
+      '@pothos/core': '*'
+      '@prisma/client': '*'
+      graphql: '>=15.1.0'
+      typescript: '>=4.7.2'
+    dependencies:
+      '@pothos/core': 3.41.0(graphql@16.8.1)
+      '@prisma/client': 5.7.1(prisma@5.7.1)
+      '@prisma/generator-helper': 5.7.1
+      graphql: 16.8.1
+      typescript: 5.3.3
+    dev: false
+
+  /@pothos/plugin-relay@3.45.1(@pothos/core@3.41.0)(graphql@16.8.1):
+    resolution: {integrity: sha512-rumqbqd69wAP49XffhcI+ZdXLzu18IVrN4CWSX9mFqHQEwivnltUl9aCfdSTd63oVqPi8p5pTi63Dm+YkWpK4w==}
+    peerDependencies:
+      '@pothos/core': '*'
+      graphql: '>=15.1.0'
+    dependencies:
+      '@pothos/core': 3.41.0(graphql@16.8.1)
+      graphql: 16.8.1
+    dev: false
+
+  /@pothos/plugin-tracing@0.5.8(@pothos/core@3.41.0)(graphql@16.8.1):
+    resolution: {integrity: sha512-18Gv8z9AS76ylGPDTSlRA7vx0ar1gwRUJwyjuI0wCeSkPegKV2TO1nRtlzk57SaRsnPWbFpSxxWyW/F4ECv4XQ==}
+    peerDependencies:
+      '@pothos/core': '*'
+      graphql: '>=15.1.0'
+    dependencies:
+      '@pothos/core': 3.41.0(graphql@16.8.1)
+      graphql: 16.8.1
+    dev: false
+
   /@prisma/client@5.7.1(prisma@5.7.1):
     resolution: {integrity: sha512-TUSa4nUcC4nf/e7X3jyO1pEd6XcI/TLRCA0KjkA46RDIpxUaRsBYEOqITwXRW2c0bMFyKcCRXrH4f7h4q9oOlg==}
     engines: {node: '>=16.13'}
@@ -1815,6 +1884,12 @@ packages:
       '@prisma/debug': 5.7.1
       '@prisma/engines-version': 5.7.1-1.0ca5ccbcfa6bdc81c003cf549abe4269f59c41e5
       '@prisma/get-platform': 5.7.1
+
+  /@prisma/generator-helper@5.7.1:
+    resolution: {integrity: sha512-BiaCt3YtMnjAoqJ51rVSkvlPk0p7ErjmgFOjRUmAE/m75E9tJmFtgT6NWzXiX6KWs2OvnVuAqNY7imK6ZwlExA==}
+    dependencies:
+      '@prisma/debug': 5.7.1
+    dev: false
 
   /@prisma/get-platform@5.7.1:
     resolution: {integrity: sha512-eDlswr3a1m5z9D/55Iyt/nZqS5UpD+DZ9MooBB3hvrcPhDQrcf9m4Tl7buy4mvAtrubQ626ECtb8c6L/f7rGSQ==}
@@ -5754,6 +5829,16 @@ packages:
     resolution: {integrity: sha512-jcLLfkpoVGmH7/InMC/1hIvOPSUh38oJtGhvrOFGzioE1DZ+0YW16RgmOJhHiuWTvGiJQ9Z1Ik43JvkRPRvE+A==}
     dependencies:
       lodash: 4.17.21
+    dev: false
+
+  /graphql-scalars@1.22.4(graphql@16.8.1):
+    resolution: {integrity: sha512-ILnv7jq5VKHLUyoaTFX7lgYrjCd6vTee9i8/B+D4zJKJT5TguOl0KkpPEbXHjmeor8AZYrVsrYUHdqRBMX1pjA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      graphql: 16.8.1
+      tslib: 2.6.2
     dev: false
 
   /graphql@16.8.1:
@@ -10554,7 +10639,6 @@ packages:
     resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
     engines: {node: '>=14.17'}
     hasBin: true
-    dev: true
 
   /umzug@2.3.0:
     resolution: {integrity: sha512-Z274K+e8goZK8QJxmbRPhl89HPO1K+ORFtm6rySPhFKfKc5GHhqdzD0SGhSWHkzoXasqJuItdhorSvY7/Cgflw==}
