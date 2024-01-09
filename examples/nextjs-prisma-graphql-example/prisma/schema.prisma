@@ -14,3 +14,32 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        String     @id @default(cuid())
+  name      String
+  balance   Decimal    @db.Money
+  createdAt DateTime   @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime   @updatedAt @db.Timestamptz(3)
+  deleted   Boolean    @default(false)
+  deletedAt DateTime?  @db.Timestamptz(3)
+  recharges Recharge[]
+}
+
+enum RECHARGE_STATUS {
+  PENDING
+  SUCCEEDED
+  FAILED
+}
+
+model Recharge {
+  id        String          @id @default(cuid())
+  amount    Decimal         @db.Money
+  status    RECHARGE_STATUS
+  user      User            @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime        @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime        @updatedAt @db.Timestamptz(3)
+  deleted   Boolean         @default(false)
+  deletedAt DateTime?       @db.Timestamptz(3)
+}
