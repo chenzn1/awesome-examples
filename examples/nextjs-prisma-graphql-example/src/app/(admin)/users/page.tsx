@@ -38,6 +38,9 @@ import { GetUsersQuery, GetUsersQueryVariables, useGetUsersQuery } from "@/clien
 import dayjs from 'dayjs'
 import { keepPreviousData } from "@tanstack/react-query"
 import { OrderBy } from "@/client/graphql/__generated__/types.generated"
+import { CreateUserModal } from "./modals/create-user.modal"
+import { UpdateUserModal } from "./modals/update-user.modal"
+import { CreateRechargeModal } from "./modals/create-recharge.modal"
 
 const EMPTY_ARRAY: any[] = []
 export default function Users() {
@@ -133,10 +136,9 @@ export default function Users() {
     {
       id: "actions",
       enableHiding: false,
-      cell: ({ row }) => {
-        const payment = row.original
-  
+      cell: ({ row }) => {  
         return (
+          // <UpdateUserModal user={row.original} />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="h-8 w-8 p-0">
@@ -147,13 +149,17 @@ export default function Users() {
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
               <DropdownMenuItem
-                onClick={() => navigator.clipboard.writeText(payment.id)}
+                onClick={event => event.preventDefault()}
               >
-                Copy payment ID
+                <UpdateUserModal user={row.original} />
               </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>View customer</DropdownMenuItem>
-              <DropdownMenuItem>View payment details</DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={event => event.preventDefault()}
+              >
+                                <CreateRechargeModal userId={row.original.id} />
+
+              </DropdownMenuItem>
+              
             </DropdownMenuContent>
           </DropdownMenu>
         )
@@ -175,7 +181,7 @@ export default function Users() {
 
   return (
     <div className="w-full">
-      <div className="flex items-center py-4">
+      <div className="flex items-center justify-between py-4">
         <Input
           placeholder="Filter name..."
           // value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
@@ -188,32 +194,35 @@ export default function Users() {
 
           className="max-w-sm"
         />
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
-              Columns <ChevronDownIcon className="ml-2 h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {table
-              .getAllColumns()
-              .filter((column) => column.getCanHide())
-              .map((column) => {
-                return (
-                  <DropdownMenuCheckboxItem
-                    key={column.id}
-                    className="capitalize"
-                    checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
-                  >
-                    {column.id}
-                  </DropdownMenuCheckboxItem>
-                )
-              })}
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="flex items-center gap-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="ml-auto">
+                Columns <ChevronDownIcon className="ml-2 h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {table
+                .getAllColumns()
+                .filter((column) => column.getCanHide())
+                .map((column) => {
+                  return (
+                    <DropdownMenuCheckboxItem
+                      key={column.id}
+                      className="capitalize"
+                      checked={column.getIsVisible()}
+                      onCheckedChange={(value) =>
+                        column.toggleVisibility(!!value)
+                      }
+                    >
+                      {column.id}
+                    </DropdownMenuCheckboxItem>
+                  )
+                })}
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <CreateUserModal />
+        </div>
       </div>
       <div className="rounded-md border">
         <Table>

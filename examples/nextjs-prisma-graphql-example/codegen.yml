@@ -16,7 +16,7 @@ generates:
   ./:
     config:
       skipTypename: true
-      nonOptionalTypename: true
+      nonOptionalTypename: false
       legacyMode: false
       reactQueryVersion: 5
       fetcher:
