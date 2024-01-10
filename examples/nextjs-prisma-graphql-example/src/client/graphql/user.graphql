@@ -1,4 +1,5 @@
-query users($where: UsersFilter, $orderBy: UsersOrderBy, $take: Int!, $skip: Int!) {
+query getUsers($where: UsersFilter, $orderBy: UsersOrderBy, $take: Int!, $skip: Int!) {
+  userTotalCount(where: $where)
   users(where: $where, orderBy: $orderBy, take: $take, skip: $skip) {
     id
     name
