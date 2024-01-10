@@ -1,7 +1,13 @@
-import prisma from "../drives/prisma";
-import { CreateRechargeInput, Recharge, RechargesFilter, RechargesOrderBy, UpdateRechargeInput } from "../entities";
-import builder from "../graphql-builder";
-import { createRecharge, updateRecharge } from "../services";
+import prisma from '../drives/prisma';
+import {
+	CreateRechargeInput,
+	Recharge,
+	RechargesFilter,
+	RechargesOrderBy,
+	UpdateRechargeInput,
+} from '../entities';
+import builder from '../graphql-builder';
+import { createRecharge, updateRecharge } from '../services';
 
 builder.queryFields(t => ({
 	rechargeTotalCount: t.field({
@@ -15,13 +21,13 @@ builder.queryFields(t => ({
 			const count = await prisma.recharge.count({
 				where: {
 					...where,
-          deleted: false
+					deleted: false,
 				},
 			});
 			return count;
 		},
 	}),
-  recharges: t.prismaField({
+	recharges: t.prismaField({
 		type: [Recharge],
 		nullable: false,
 		args: {
@@ -36,7 +42,7 @@ builder.queryFields(t => ({
 				...args,
 				where: {
 					...where,
-          deleted: false
+					deleted: false,
 				},
 				take,
 				skip,
@@ -46,7 +52,7 @@ builder.queryFields(t => ({
 			return list;
 		},
 	}),
-}))
+}));
 
 builder.mutationFields(t => ({
 	createRecharge: t.field({
@@ -55,15 +61,15 @@ builder.mutationFields(t => ({
 		args: {
 			data: t.arg({ type: CreateRechargeInput, required: true }),
 		},
-		resolve: (_, args) => createRecharge(args.data)
+		resolve: (_, args) => createRecharge(args.data),
 	}),
 	updateRecharge: t.field({
 		type: Recharge,
 		nullable: false,
 		args: {
-			id: t.arg({ type: 'String', required: true  }),
+			id: t.arg({ type: 'String', required: true }),
 			data: t.arg({ type: UpdateRechargeInput, required: true }),
 		},
-		resolve: (_, args) => updateRecharge(args.id, args.data)
+		resolve: (_, args) => updateRecharge(args.id, args.data),
 	}),
-}))
+}));

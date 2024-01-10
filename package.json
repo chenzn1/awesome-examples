@@ -15,9 +15,10 @@
   "license": "MIT",
   "packageManager": "pnpm@8.9.0",
   "devDependencies": {
-    "turbo": "^1.11.3",
-    "husky": "^8.0.3",
     "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4"
+    "@commitlint/config-conventional": "^8.3.4",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "turbo": "^1.11.3"
   }
 }

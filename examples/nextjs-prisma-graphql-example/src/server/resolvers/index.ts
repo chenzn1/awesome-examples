@@ -1,2 +1,2 @@
-import './recharge.resolver'
-import './user.resolver'
+import './recharge.resolver';
+import './user.resolver';

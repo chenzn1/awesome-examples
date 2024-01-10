@@ -1,12 +1,16 @@
 import SchemaBuilder from '@pothos/core';
-import RelayPlugin from '@pothos/plugin-relay';
 import PrismaPlugin from '@pothos/plugin-prisma';
 import type PrismaTypes from '@pothos/plugin-prisma/generated';
-import { DateTimeResolver, JSONResolver } from 'graphql-scalars';
-import prisma from './drives/prisma';
-import { Prisma, PrismaClient } from '@prisma/client';
 import PrismaUtils from '@pothos/plugin-prisma-utils';
-import TracingPlugin, { wrapResolver, isRootField } from '@pothos/plugin-tracing';
+import RelayPlugin from '@pothos/plugin-relay';
+import TracingPlugin, {
+	isRootField,
+	wrapResolver,
+} from '@pothos/plugin-tracing';
+import { Prisma, PrismaClient } from '@prisma/client';
+import { DateTimeResolver, JSONResolver } from 'graphql-scalars';
+
+import prisma from './drives/prisma';
 
 export interface GraphQLContext {
 	prisma: PrismaClient;
@@ -45,7 +49,11 @@ const builder = new SchemaBuilder<{
 		default: config => isRootField(config),
 		wrap: (resolver, options, config) =>
 			wrapResolver(resolver, (error, duration) => {
-				console.log(`Executed resolver ${config.parentType}.${config.name} in ${duration.toFixed(2)}ms`);
+				console.log(
+					`Executed resolver ${config.parentType}.${
+						config.name
+					} in ${duration.toFixed(2)}ms`,
+				);
 			}),
 	},
 });
