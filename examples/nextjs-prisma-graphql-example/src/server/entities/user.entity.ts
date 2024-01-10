@@ -27,6 +27,7 @@ export const UsersFilter = builder.prismaWhere('User', {
 
 export const UsersOrderBy = builder.prismaOrderBy('User', {
 	fields: {
+    balance: true,
 		createdAt: true,
 		updatedAt: true,
 	},

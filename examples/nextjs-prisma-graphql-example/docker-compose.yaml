@@ -9,5 +9,5 @@ services:
       POSTGRES_USER: nouser
       POSTGRES_PASSWORD: nopassword
     ports:
-      - '5432:5432'
+      - '54320:5432'
     tty: true
