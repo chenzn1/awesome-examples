@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3024",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate": "pnpm run generate:schema && pnpm run generate:graphql-codegen",
+    "generate": "pnpm run generate:prisma && pnpm run generate:schema && pnpm run generate:graphql-codegen",
+    "generate:prisma": "prisma generate",
     "generate:schema": "cross-env GENERATE=true cross-env DOTENV_CONFIG_PATH=.env.example ts-node --require dotenv/config -r tsconfig-paths/register --transpile-only -P pothos.tsconfig.json src/server/graphql-schema.ts",
     "generate:graphql-codegen": "rm -f src/client/graphql/__generated__/* && graphql-codegen"
   },
