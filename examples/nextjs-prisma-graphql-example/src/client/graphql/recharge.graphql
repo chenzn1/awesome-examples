@@ -1,0 +1,26 @@
+query getRecharges($where: RechargesFilter, $orderBy: RechargesOrderBy, $take: Int!, $skip: Int!) {
+  rechargeTotalCount(where: $where)
+  recharges(where: $where, orderBy: $orderBy, take: $take, skip: $skip) {
+    id
+    user {
+      id
+      name
+    }
+    status
+    amount
+    createdAt
+    updatedAt
+  }
+}
+
+mutation createRecharge($data: CreateRechargeInput!) {
+  createRecharge(data:$data) {
+    id
+  }
+} 
+
+mutation updateRecharge($id: String!, $data: UpdateRechargeInput!) {
+  updateRecharge(id: $id, data:$data) {
+  id
+  }
+} 

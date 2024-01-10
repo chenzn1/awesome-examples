@@ -8,3 +8,15 @@ query getUsers($where: UsersFilter, $orderBy: UsersOrderBy, $take: Int!, $skip: 
     updatedAt
   }
 }
+
+mutation createUser($data: CreateUserInput!) {
+  createUser(data:$data) {
+    id
+  }
+} 
+
+mutation updateUser($id: String!, $data: CreateUserInput!) {
+  updateUser(id: $id, data:$data) {
+  id
+  }
+} 
