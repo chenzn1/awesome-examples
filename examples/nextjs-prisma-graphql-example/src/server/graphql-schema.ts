@@ -1,10 +1,11 @@
+// Import your types here
+import './resolvers';
+
 import { writeFileSync } from 'fs';
 import { lexicographicSortSchema, printSchema } from 'graphql';
 import { join } from 'path';
-import builder from './graphql-builder';
 
-// Import your types here
-import './resolvers';
+import builder from './graphql-builder';
 
 export const schema = builder.toSchema({});
 

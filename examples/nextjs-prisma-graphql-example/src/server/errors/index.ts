@@ -1,4 +1,4 @@
-import { GraphQLError, GraphQLErrorExtensions } from "graphql";
+import { GraphQLError, GraphQLErrorExtensions } from 'graphql';
 
 export class UserNotFoundError extends GraphQLError {
 	constructor(extensions?: GraphQLErrorExtensions) {

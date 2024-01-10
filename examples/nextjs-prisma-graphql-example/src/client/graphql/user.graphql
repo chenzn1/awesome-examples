@@ -17,6 +17,6 @@ mutation createUser($data: CreateUserInput!) {
 
 mutation updateUser($id: String!, $data: CreateUserInput!) {
   updateUser(id: $id, data:$data) {
-  id
+    id
   }
 } 
