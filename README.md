@@ -1,5 +1,5 @@
-# Some examples
+# Awesome examples
 - Express examples
-  - [With sequelize/swagger](examples/express-sequelize-example/README.md)
+  - [With Sequelize/Swagger](examples/express-sequelize-example)
 - Nextjs examples
-  - [With graphql/prisma](examples/nextjs-prisma-graphql-example/README.md)
+  - [With Graphql/Prisma/ReactQuery](examples/nextjs-prisma-graphql-example)
