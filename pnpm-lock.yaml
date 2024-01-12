@@ -24,7 +24,7 @@ importers:
         specifier: ^1.11.3
         version: 1.11.3
 
-  examples/express-sequelize-example:
+  express-sequelize-example:
     dependencies:
       '@godaddy/terminus':
         specifier: ^4.2.0
@@ -169,7 +169,7 @@ importers:
         specifier: ^4.5.3
         version: 4.9.5
 
-  examples/nextjs-prisma-graphql-example:
+  nextjs-prisma-graphql-example:
     dependencies:
       '@pothos/core':
         specifier: ^3.41.0

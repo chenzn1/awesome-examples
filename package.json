@@ -4,7 +4,8 @@
   "description": "",
   "private": true,
   "workspaces": [
-    "examples/*"
+    "express-sequelize-example",
+    "nextjs-prisma-graphql-example"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
