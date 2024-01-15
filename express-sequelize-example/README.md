@@ -59,7 +59,7 @@
 ### Get started
 
 ```bash
-# 安装以来
+# 安装依赖
 yarn install
 # 启动 MySQL
 docker-compose up -d

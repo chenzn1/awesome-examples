@@ -15,14 +15,20 @@
   - [Pothos Graphql](https://pothos-graphql.dev/)
   - [React Query](https://tanstack.com/query)
   - [Shadcn UI](https://ui.shadcn.com/docs)
+  - [Tailwind CSS](https://tailwindcss.com/docs)
 - DB
   - PostgreSQL
 - Tooling
   - [Graphql codegen](https://the-guild.dev/graphql/codegen/docs)
-  - [eslint](https://eslint.org/)
-  - [typescript](https://typescriptlang.org/)
-  - [jest](https://facebook.github.io/jest/)
-  - [docker](https://www.docker.com/)
+  - [Eslint](https://eslint.org/)
+  - [Typescript](https://typescriptlang.org/)
+  - [Jest](https://facebook.github.io/jest/)
+  - [Docker](https://www.docker.com/)
+
+如果是对使用某些工具或者技术有疑问，可以查看下面的文档:
+
+- [Why Graphql?](docs/why-graphql.md)
+- [Why Shadcn UI?](docs/why-shadcn.md)
 
 ### 项目结构
 
@@ -63,7 +69,7 @@
 ### Get started
 
 ```bash
-# 安装以来
+# 安装依赖
 pnpm install
 
 # Env
