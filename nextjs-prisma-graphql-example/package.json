@@ -69,6 +69,10 @@
     "tailwindcss": "^3.3.0",
     "ts-node": "^10.4.0",
     "tsconfig-paths": "^3.9.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3"
   }
 }

@@ -1,3 +1,4 @@
 packages:
   - 'nextjs-prisma-graphql-example'
   - 'express-sequelize-example'
+  - 'packages/*'
