@@ -1,7 +1,14 @@
-const simpleGit = require('simple-git');
-const {cp, rm} = require('fs/promises');
-const { join } = require('path');
-const prompts = require('prompts');
+#!/usr/bin/env node
+
+import simpleGit from 'simple-git'
+import ora from 'ora'
+import {cp, rm} from 'fs/promises'
+import {dirname, join} from 'path'
+import prompts from 'prompts'
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 async function initNextJsProject(projectPath, framework) {
   await cp(join(__dirname, projectPath, framework === 'nextjs'? 'nextjs-prisma-graphql-example': 'express-sequelize-example'), join(__dirname, projectPath), {recursive: true})
@@ -24,8 +31,11 @@ async function main() {
       { title: 'Express', value: 'express' }
     ],
   }]);
+  const spinner = ora('Downloading template').start();
   // https://github.com/chenzn1/awesome-examples.git
   await simpleGit().clone('https://github.com/chenzn1/awesome-examples.git', response.path)
+  spinner.stop()
   await initNextJsProject(response.path, response.framework)
+  console.log(`Create successfully, please enter the ${response.path} and run 'pnpm install'`)
 }
 main()

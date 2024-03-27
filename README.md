@@ -1,5 +1,10 @@
 # Awesome examples
-- Express examples
+- Express example
   - [With Sequelize/Swagger](express-sequelize-example)
-- Nextjs examples
+- Nextjs example
   - [With Graphql/Prisma/ReactQuery](nextjs-prisma-graphql-example)
+
+## How to install?
+```
+npx create-awesome-example
+```

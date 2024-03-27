@@ -1,16 +1,31 @@
 {
   "name": "create-awesome-example",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
+  "bin": "index.js",
+  "type": "module",
   "scripts": {
+    "create-awesome-example": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nextjs template",
+    "express template",
+    "template",
+    "graphql",
+    "react",
+    "rest api"
+  ],
+  "author": "Michael <312073339@qq.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenzn1/awesome-examples.git"
+  },
   "license": "MIT",
   "dependencies": {
     "commander": "^12.0.0",
+    "ora": "^8.0.1",
     "prompts": "^2.4.2",
     "simple-git": "^3.23.0"
   }
