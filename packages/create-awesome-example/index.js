@@ -5,11 +5,8 @@ import ora from 'ora'
 import {cp, rm} from 'fs/promises'
 import {dirname, join} from 'path'
 import prompts from 'prompts'
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
+const __dirname = dirname(process.cwd());
 async function initNextJsProject(projectPath, framework) {
   await cp(join(__dirname, projectPath, framework === 'nextjs'? 'nextjs-prisma-graphql-example': 'express-sequelize-example'), join(__dirname, projectPath), {recursive: true})
   await rm(join(__dirname, projectPath, 'nextjs-prisma-graphql-example'), {recursive: true})
