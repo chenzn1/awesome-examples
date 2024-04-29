@@ -54,7 +54,6 @@ async function main() {
   );
 
   spinner.stop();
-  console.log("response", response);
   await initNextJsProject(response.path, response.framework);
   console.log(
     `Create successfully, please enter the ${response.path} and run 'pnpm install'`
