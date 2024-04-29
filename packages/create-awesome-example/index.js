@@ -13,6 +13,7 @@ async function initNextJsProject(projectPath, framework) {
   await rm(join(__dirname, projectPath, 'express-sequelize-example'), {recursive: true})
   await rm(join(__dirname, projectPath, 'packages'), {recursive: true})
   await rm(join(__dirname, projectPath, 'pnpm-lock.yaml'))
+  await rm(join(__dirname, projectPath, '.git'), {recursive: true})
 }
 async function main() {
   const response = await prompts([{
